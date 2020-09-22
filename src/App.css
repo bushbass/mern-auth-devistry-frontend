@@ -55,6 +55,50 @@ nav button {
 nav button:hover {
   background-color: rgb(179, 23, 23);
 }
+
+.page {
+  padding: 1rem;
+}
+
+.form label,
+.form input {
+  display: block;
+}
+.form input {
+  margin-bottom: 1rem;
+}
+.form label {
+  margin-bottom: 0.2rem;
+}
+.form input[type='text'],
+.form input[type='email'],
+.form input[type='password'] {
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 0.3rem;
+  border: 1px solid #cacaca;
+  background-color: #e4e4e4;
+  border-radius: 8px;
+}
+.form input:focus {
+  outline: none;
+  border: 1px solid rgb(64, 64, 238);
+  box-shadow: inset 0px 0px 5px rgba(64, 64, 238, 0.5);
+}
+
+.form input[type='submit'] {
+  border: 1px solid #54b626;
+  background-color: #acee8e;
+  padding: 0.2rem 0.5rem;
+  font-size: 1.1rem;
+  border-radius: 8px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 @media screen and (max-width: 550px) {
   header .title {
     font-size: 1.2rem;
