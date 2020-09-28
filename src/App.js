@@ -10,15 +10,17 @@ import UserContext from './context/UserContext';
 import UserDisplay from './components/pages/UserDisplay';
 
 function App() {
-  const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:5000';
-
   const [userData, setUserData] = useState({
     token: undefined,
     user: undefined,
   });
+  const [BACKEND_URL] = useState(
+    process.env.BACKEND_URL || 'http://localhost:5000'
+  );
 
   useEffect(() => {
     const checkLoggedIn = async () => {
+      console.log('backend url from useeffect', BACKEND_URL);
       let token = localStorage.getItem('auth-token');
       if (token === null) {
         localStorage.setItem('auth-token', '');
