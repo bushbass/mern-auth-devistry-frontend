@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Axios from 'axios';
+import UserContext from '../../context/UserContext';
 
 function UserDisplay() {
   const [todos, setTodos] = useState([]);
+  const { BACKEND_URL } = useContext(UserContext);
+
   useEffect(() => {
     async function fetchData() {
       const token = localStorage.getItem('auth-token');
-      const getAllResponse = await Axios.get('http://localhost:5000/todos', {
+      const getAllResponse = await Axios.get(`${BACKEND_URL}/todos`, {
         headers: {
           'x-auth-token': token,
         },
@@ -15,7 +18,7 @@ function UserDisplay() {
       setTodos(getAllResponse.data);
     }
     fetchData();
-  }, []); // Or [] if effect doesn't need props or state
+  }, [BACKEND_URL]); // Or [] if effect doesn't need props or state
 
   return (
     <div>

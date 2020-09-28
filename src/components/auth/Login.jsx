@@ -8,18 +8,18 @@ function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [error, setError] = useState();
-  const { setUserData } = useContext(UserContext);
+  const { setUserData, BACKEND_URL } = useContext(UserContext);
   const history = useHistory();
 
   const submit = async (e) => {
     e.preventDefault();
     try {
       const loginUser = { email, password };
-      await Axios.post('http://localhost:5000/users/login', loginUser);
-      const loginResponse = await Axios.post(
-        'http://localhost:5000/users/login',
-        { email, password }
-      );
+      await Axios.post(`${BACKEND_URL}/users/login`, loginUser);
+      const loginResponse = await Axios.post(`${BACKEND_URL}/users/login`, {
+        email,
+        password,
+      });
       setUserData({
         token: loginResponse.data.token,
         user: loginResponse.data.user,

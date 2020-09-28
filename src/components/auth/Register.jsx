@@ -11,18 +11,18 @@ function Register() {
   const [displayName, setDisplayName] = useState();
   const [error, setError] = useState();
 
-  const { setUserData } = useContext(UserContext);
+  const { setUserData, BACKEND_URL } = useContext(UserContext);
   const history = useHistory();
 
   const submit = async (e) => {
     e.preventDefault();
     try {
       const newUser = { email, password, passwordCheck, displayName };
-      await Axios.post('http://localhost:5000/users/register', newUser);
-      const loginResponse = await Axios.post(
-        'http://localhost:5000/users/login',
-        { email, password }
-      );
+      await Axios.post(`${BACKEND_URL}/users/register`, newUser);
+      const loginResponse = await Axios.post(`${BACKEND_URL}/users/login`, {
+        email,
+        password,
+      });
       setUserData({
         token: loginResponse.data.token,
         user: loginResponse.data.user,

@@ -10,6 +10,8 @@ import UserContext from './context/UserContext';
 import UserDisplay from './components/pages/UserDisplay';
 
 function App() {
+  const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:5000';
+
   const [userData, setUserData] = useState({
     token: undefined,
     user: undefined,
@@ -23,23 +25,23 @@ function App() {
         token = '';
       }
       const tokenResponse = await Axios.post(
-        'http://localhost:5000/users/tokenIsValid',
+        `${BACKEND_URL}/users/tokenIsValid`,
         null,
         { headers: { 'x-auth-token': token } }
       );
       if (tokenResponse.data) {
-        const userResponse = await Axios.get('http://localhost:5000/users', {
+        const userResponse = await Axios.get(`${BACKEND_URL}/users`, {
           headers: { 'x-auth-token': token },
         });
         setUserData({ token, user: userResponse.data });
       }
     };
     checkLoggedIn();
-  }, []);
+  }, [BACKEND_URL]);
 
   return (
     <BrowserRouter>
-      <UserContext.Provider value={{ userData, setUserData }}>
+      <UserContext.Provider value={{ userData, setUserData, BACKEND_URL }}>
         <Header />
         <div className='container'>
           <Switch>
