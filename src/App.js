@@ -7,6 +7,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Header from './components/layout/Header';
 import UserContext from './context/UserContext';
+import UserDisplay from './components/pages/UserDisplay';
 
 function App() {
   const [userData, setUserData] = useState({
@@ -45,6 +46,7 @@ function App() {
             <Route exact path='/' component={Home} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
+            <Route path='/todos' component={UserDisplay} />
           </Switch>
         </div>
       </UserContext.Provider>

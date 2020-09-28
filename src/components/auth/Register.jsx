@@ -56,7 +56,7 @@ function Register() {
         />
 
         <input
-          id='register-password'
+          id='register-password-check'
           type='password'
           placeholder='verify password'
           onChange={(e) => setPasswordCheck(e.target.value)}
