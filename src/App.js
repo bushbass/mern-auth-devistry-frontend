@@ -15,7 +15,7 @@ function App() {
     user: undefined,
   });
   const [BACKEND_URL] = useState(
-    process.env.BACKEND_URL || 'http://localhost:5000'
+    https://devistry-auth-backend.herokuapp.com/ || 'http://localhost:5000'
   );
 
   useEffect(() => {
