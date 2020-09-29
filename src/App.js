@@ -8,6 +8,7 @@ import Register from './components/auth/Register';
 import Header from './components/layout/Header';
 import UserContext from './context/UserContext';
 import UserDisplay from './components/pages/UserDisplay';
+import AddTodo from './components/pages/AddTodo';
 
 function App() {
   const [userData, setUserData] = useState({
@@ -15,12 +16,12 @@ function App() {
     user: undefined,
   });
   const [BACKEND_URL] = useState(
-    `https://devistry-auth-backend.herokuapp.com` || 'http://localhost:5000'
+    'http://localhost:5000'
+    // `https://devistry-auth-backend.herokuapp.com` || 'http://localhost:5000'
   );
 
   useEffect(() => {
     const checkLoggedIn = async () => {
-      console.log('backend url from useeffect', BACKEND_URL);
       let token = localStorage.getItem('auth-token');
       if (token === null) {
         localStorage.setItem('auth-token', '');
@@ -51,6 +52,7 @@ function App() {
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
             <Route path='/todos' component={UserDisplay} />
+            <Route path='/addTodo' component={AddTodo} />
           </Switch>
         </div>
       </UserContext.Provider>

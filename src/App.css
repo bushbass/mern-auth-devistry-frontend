@@ -51,6 +51,7 @@ header nav {
 
 nav button {
   background-color: rgb(100, 4, 4);
+  border-right: 1px solid white;
 }
 nav button:hover {
   background-color: rgb(179, 23, 23);
@@ -117,7 +118,11 @@ nav button:hover {
   border-radius: 50%;
   color: white;
 }
-
+.delete-button {
+  width: 20px;
+  height: 20px;
+  color: red;
+}
 @media screen and (max-width: 550px) {
   header .title {
     font-size: 1.2rem;

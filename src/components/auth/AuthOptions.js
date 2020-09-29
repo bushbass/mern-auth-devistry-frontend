@@ -10,6 +10,7 @@ function AuthOptions() {
   const register = () => history.push('/register');
   const login = () => history.push('/login');
   const showTodos = () => history.push('/todos');
+  const addTodo = () => history.push('/addTodo');
   const logout = () => {
     setUserData({
       token: undefined,
@@ -22,6 +23,7 @@ function AuthOptions() {
     <nav>
       {userData.user ? (
         <>
+          <button onClick={addTodo}>Add Todo</button>
           <button onClick={showTodos}>Show Todos</button>
           <button onClick={logout}>Log out</button>
         </>
