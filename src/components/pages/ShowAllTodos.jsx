@@ -50,8 +50,8 @@ function ShowAllTodos() {
         {todos.map((todo) => {
           return (
             <Link key={todo._id} to={`/todo/${todo._id}`}>
-              <li>
-                {todo.title}``
+              <li className='todo-show-all'>
+                {todo.title}
                 <button
                   onClick={() => deleteTodo(todo._id)}
                   className='delete-button'
