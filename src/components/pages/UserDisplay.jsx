@@ -51,7 +51,7 @@ function UserDisplay() {
           return (
             <Link key={todo._id} to={`/todo/${todo._id}`}>
               <li>
-                {todo.title} + {todo._id}{' '}
+                {todo.title}
                 <button
                   onClick={() => deleteTodo(todo._id)}
                   className='delete-button'
