@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Axios from 'axios';
 import UserContext from '../../context/UserContext';
-import { useHistory, useParams, useLocation } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 function SingleTodo() {
   const { BACKEND_URL, userData } = useContext(UserContext);
@@ -21,7 +21,7 @@ function SingleTodo() {
       setTodo(getAllResponse.data[0]);
     }
     fetchData();
-  }, [BACKEND_URL, renderToggle]); // Or [] if effect doesn't need props or state
+  }, [BACKEND_URL, renderToggle, pageId]); // Or [] if effect doesn't need props or state
 
   useEffect(() => {
     if (!userData.user) history.push('/login');
