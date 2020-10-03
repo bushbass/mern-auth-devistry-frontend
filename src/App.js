@@ -16,10 +16,10 @@ function App() {
     token: undefined,
     user: undefined,
   });
-  const [BACKEND_URL] = useState('http://localhost:5000');
-  // const [BACKEND_URL] = useState(
-  //   `https://devistry-auth-backend.herokuapp.com` || 'http://localhost:5000'
-  // );
+  // const [BACKEND_URL] = useState('http://localhost:5000');
+  const [BACKEND_URL] = useState(
+    `https://devistry-auth-backend.herokuapp.com` || 'http://localhost:5000'
+  );
 
   useEffect(() => {
     const checkLoggedIn = async () => {
