@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Axios from 'axios';
 import UserContext from '../../context/UserContext';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 function UserDisplay() {
   const [todos, setTodos] = useState([]);
@@ -47,19 +47,23 @@ function UserDisplay() {
     <div className='page'>
       {console.log(renderToggle)}
       <h2>All current todos</h2>
-      {todos.map((todo) => {
-        return (
-          <div key={todo._id}>
-            {todo.title} + {todo._id}{' '}
-            <button
-              onClick={() => deleteTodo(todo._id)}
-              className='delete-button'
-            >
-              X
-            </button>
-          </div>
-        );
-      })}
+      <ul>
+        {todos.map((todo) => {
+          return (
+            <Link key={todo._id} to={`/todo/${todo._id}`}>
+              <li>
+                {todo.title} + {todo._id}{' '}
+                <button
+                  onClick={() => deleteTodo(todo._id)}
+                  className='delete-button'
+                >
+                  X
+                </button>
+              </li>
+            </Link>
+          );
+        })}
+      </ul>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import './App.css';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, useParams } from 'react-router-dom';
 import Home from './components/pages/Home';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
@@ -9,15 +9,17 @@ import Header from './components/layout/Header';
 import UserContext from './context/UserContext';
 import UserDisplay from './components/pages/UserDisplay';
 import AddTodo from './components/pages/AddTodo';
+import SingleTodo from './components/pages/SingleTodo';
 
 function App() {
   const [userData, setUserData] = useState({
     token: undefined,
     user: undefined,
   });
-  const [BACKEND_URL] = useState(
-    `https://devistry-auth-backend.herokuapp.com` || 'http://localhost:5000'
-  );
+  const [BACKEND_URL] = useState('http://localhost:5000');
+  // const [BACKEND_URL] = useState(
+  //   `https://devistry-auth-backend.herokuapp.com` || 'http://localhost:5000'
+  // );
 
   useEffect(() => {
     const checkLoggedIn = async () => {
@@ -52,6 +54,7 @@ function App() {
             <Route path='/register' component={Register} />
             <Route path='/todos' component={UserDisplay} />
             <Route path='/addTodo' component={AddTodo} />
+            <Route path={`/todo/:pageId`} children={<SingleTodo />} />
           </Switch>
         </div>
       </UserContext.Provider>
