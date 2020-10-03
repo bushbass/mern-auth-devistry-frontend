@@ -45,7 +45,6 @@ function UserDisplay() {
 
   return (
     <div className='page'>
-      {console.log(renderToggle)}
       <h2>All current todos</h2>
       <ul>
         {todos.map((todo) => {
