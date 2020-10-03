@@ -7,7 +7,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Header from './components/layout/Header';
 import UserContext from './context/UserContext';
-import UserDisplay from './components/pages/UserDisplay';
+import ShowAllTodos from './components/pages/ShowAllTodos';
 import AddTodo from './components/pages/AddTodo';
 import SingleTodo from './components/pages/SingleTodo';
 
@@ -52,7 +52,7 @@ function App() {
             <Route exact path='/' component={Home} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={Register} />
-            <Route path='/todos' component={UserDisplay} />
+            <Route path='/todos' component={ShowAllTodos} />
             <Route path='/addTodo' component={AddTodo} />
             <Route path={`/todo/:pageId`} children={<SingleTodo />} />
           </Switch>

@@ -3,7 +3,7 @@ import Axios from 'axios';
 import UserContext from '../../context/UserContext';
 import { useHistory, Link } from 'react-router-dom';
 
-function UserDisplay() {
+function ShowAllTodos() {
   const [todos, setTodos] = useState([]);
   const { BACKEND_URL, userData } = useContext(UserContext);
   const history = useHistory();
@@ -51,7 +51,7 @@ function UserDisplay() {
           return (
             <Link key={todo._id} to={`/todo/${todo._id}`}>
               <li>
-                {todo.title}
+                {todo.title}``
                 <button
                   onClick={() => deleteTodo(todo._id)}
                   className='delete-button'
@@ -67,4 +67,4 @@ function UserDisplay() {
   );
 }
 
-export default UserDisplay;
+export default ShowAllTodos;
