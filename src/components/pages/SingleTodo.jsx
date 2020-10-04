@@ -29,8 +29,8 @@ function SingleTodo() {
 
   return (
     <div>
-      <h2>sinlge component page</h2>
-      <p>{todo.title}</p>
+      <h2>Show one todo</h2>
+      <p className='todo-single'>{todo.title}</p>
     </div>
   );
 }
