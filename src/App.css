@@ -47,11 +47,16 @@ header nav {
   display: flex;
   color: #ffffff;
   font-size: 1.1rem;
+  align-items: center;
 }
 
 nav button {
   background-color: rgb(100, 4, 4);
   border-right: 1px solid white;
+  height: 100%;
+}
+.nav-current-user {
+  margin-right: 10px;
 }
 nav button:hover {
   background-color: rgb(179, 23, 23);

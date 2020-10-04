@@ -23,6 +23,9 @@ function AuthOptions() {
     <nav>
       {userData.user ? (
         <>
+          <span className='nav-current-user'>
+            Current User - {userData.user.displayName}
+          </span>
           <button onClick={addTodo}>Add Todo</button>
           <button onClick={showTodos}>Show Todos</button>
           <button onClick={logout}>Log out</button>
